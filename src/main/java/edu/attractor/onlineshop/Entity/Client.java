@@ -1,20 +1,29 @@
 package edu.attractor.onlineshop.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "clients")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name="clients")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
     @Column(length = 128)
     private String name;
 
-    @Column(length = 128)
-    private int price;
+    @Column(length = 224)
+    private String address;
+
+    @Column(unique = true)
+    private String email;
 }

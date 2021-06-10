@@ -4,23 +4,20 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Data@Builder
+@Data
+@Builder
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
-    @Column(length = 128)
+    @Column(name ="name",length = 128)
     private String name;
 
-    @Column(length = 128)
+    @Column(name ="price")
     private int price;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
 }

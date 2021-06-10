@@ -1,18 +1,25 @@
 package edu.attractor.onlineshop.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalTime;
+import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="orders")
 @Entity
-@Table(name = "orders")
-public class Order {
+public class Order{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
+    @OneToOne
     private Client client;
 }
