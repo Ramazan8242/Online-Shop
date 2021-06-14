@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Data
 @Entity
@@ -23,13 +20,15 @@ public class Client {
     private Integer id;
     @NotNull
     @Column(length = 128)
-    @Size(min = 3,max = 90)
+    @Size(min = 4,max = 24, message = "Length must be >  4 and  < 24")
+    @Pattern(regexp = "^[^\\d\\s]+$", message = "Should contains only letters")
     private String name;
     @Min(13)
     private Integer age;
     @Column(length = 224)
     private String address;
     @Email
+    @NotBlank
     @Column(unique = true)
     private String email;
 }
