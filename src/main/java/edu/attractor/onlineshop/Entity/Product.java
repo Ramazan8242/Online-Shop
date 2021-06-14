@@ -22,5 +22,8 @@ public class Product{
     private String name;
 
     @Column(name ="price")
-    private int price;
+    private Integer price;
+
+
+    private String image;
 }
