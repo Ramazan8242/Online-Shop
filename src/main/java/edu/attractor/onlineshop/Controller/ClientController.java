@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Data
 @Controller
-@RequestMapping("/client")
+@RequestMapping("/clients")
 public class ClientController {
     private final ClientService clientService;
 
-    @GetMapping("${id}")
+    @GetMapping("{id}")
     public String getClientsName(@PathVariable Integer id, Model model){
         Client client = clientService.getNameClients(id);
         model.addAttribute("client" , client);
