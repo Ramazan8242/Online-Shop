@@ -1,34 +1,34 @@
-use `onlineshop`;
+create schema if not exists onlineshop collate utf8mb4_0900_ai_ci;
 
-create table clients(
-id integer not null AUTO_INCREMENT,
-name varchar (128) not null,
-age integer not null,
-address varchar (128) not null,
-email varchar (128) not null,
-primary key (id)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-create table products(
-id integer not null AUTO_INCREMENT,
-name varchar(128) not null,
-price integer not null,
-image varchar(128) not null,
-primary key (id)
-)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-create table orders(
-id integer not null AUTO_INCREMENT,
-client_id integer not null,
-product_id integer not null,
-primary key (id),
-INDEX FK_client_idx (client_id),
-INDEX FK_product_idx (product_id),
-CONSTRAINT FK_client FOREIGN KEY (client_id) REFERENCES clients (id),
-CONSTRAINT FK_product FOREIGN KEY (product_id) REFERENCES products (id)
+create table if not exists clients
+(
+	id int auto_increment
+		primary key,
+	address varchar(224) null,
+	age int null,
+	email varchar(255) null,
+	name varchar(128) null,
+	constraint UK_srv16ica2c1csub334bxjjb59
+		unique (email)
 );
 
--- create table orders_products (
--- order_id integer not null,
--- products_id integer not null
--- )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+create table if not exists orders
+(
+	id int auto_increment
+		primary key,
+	client_id int null,
+	constraint FKm2dep9derpoaehshbkkatam3v
+		foreign key (client_id) references clients (id)
+);
+
+create table if not exists products
+(
+	id int auto_increment
+		primary key,
+	image varchar(255) null,
+	name varchar(128) null,
+	price int null,
+	order_id int null,
+	constraint FKr3aftk48ylvntpui7l04kbcc1
+		foreign key (order_id) references orders (id)
+);
