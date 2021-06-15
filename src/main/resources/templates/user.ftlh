@@ -5,8 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-    <#if client??>
-        <div>${client.name}</div>
-    </#if>
+    <#if client??><div>${client.name}!</div></#if>
 </body>
 </html>
