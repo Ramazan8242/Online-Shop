@@ -20,8 +20,6 @@ public class Client {
     private Integer id;
     @NotNull
     @Column(length = 128)
-    @Size(min = 4,max = 24, message = "Length must be >  4 and  < 24")
-    @Pattern(regexp = "^[^\\d\\s]+$", message = "Should contains only letters")
     private String name;
     @Min(13)
     private Integer age;

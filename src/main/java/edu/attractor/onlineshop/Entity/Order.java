@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalTime;
 import java.util.List;
 
 @Data
@@ -23,6 +22,7 @@ public class Order{
     @OneToOne
     private Client client;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
+    @OrderBy("name ASC")
     private List<Product> products;
 }
