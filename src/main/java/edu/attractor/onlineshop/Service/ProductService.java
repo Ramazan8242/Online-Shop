@@ -5,6 +5,8 @@ import edu.attractor.onlineshop.Entity.Product;
 import edu.attractor.onlineshop.Repository.ProductRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -35,5 +37,9 @@ public class ProductService {
         }
 
         return products;
+    }
+
+    public Page<Product> getProduct(Pageable pageable) {
+        return this.productRepository.findAll(pageable);
     }
 }
