@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 
 @Data
 @Builder
@@ -22,7 +23,7 @@ public class Product{
     private String name;
 
     @Column(name ="price")
-    private Integer price;
+    private BigDecimal price;
 
     private String image;
 
