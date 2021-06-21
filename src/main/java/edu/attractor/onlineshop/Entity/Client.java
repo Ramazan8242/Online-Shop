@@ -1,32 +1,44 @@
 package edu.attractor.onlineshop.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 @Table(name="clients")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotNull
-    @Column(length = 128)
-    private String name;
-    @Min(13)
-    private Integer age;
-    @Column(length = 224)
-    private String address;
+
     @Email
     @NotBlank
-    @Column(unique = true)
+    @Size(min = 1, max = 128)
+    @Column(length = 128)
     private String email;
+
+    @NotBlank
+    @Size(min = 8, max = 128)
+    @Column(length = 128)
+    private String password;
+
+    @NotBlank
+    @Size(min = 1, max = 128)
+    @Column(length = 128)
+    private String fullname;
+
+    @Column
+    @Builder.Default
+    private boolean enabled = true;
+
+    @NotBlank
+    @Size(min = 1, max = 128)
+    @Column(length = 128)
+    @Builder.Default
+    private String role = "USER";
 }

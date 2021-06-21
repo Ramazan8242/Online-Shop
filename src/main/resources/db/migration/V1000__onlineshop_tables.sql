@@ -1,6 +1,6 @@
 use `onlineshop`;
 
-create table clients (id integer not null auto_increment, address varchar(224), age integer, email varchar(255), name varchar(128), primary key (id)) engine=InnoDB;
+CREATE TABLE `clients` (`id` int auto_increment NOT NULL,`email` varchar(128) NOT NULL,`password` varchar(128) NOT NULL,`fullname` varchar(128) NOT NULL default ' ',`enabled` boolean NOT NULL default true,`role` varchar(16) NOT NULL default 'USER',PRIMARY KEY (`id`),UNIQUE INDEX `email_unique` (`email` ASC));
 create table orders (id integer not null auto_increment, client_id integer, primary key (id)) engine=InnoDB;
 create table products (id integer not null auto_increment, image varchar(255), name varchar(128), price decimal, order_id integer, primary key (id)) engine=InnoDB;
 alter table clients add constraint UK_srv16ica2c1csub334bxjjb59 unique (email);

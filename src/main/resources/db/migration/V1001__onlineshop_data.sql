@@ -1,8 +1,8 @@
-insert into clients(name, age,address, email )
-value ("Aman", 21 , "Maldybaeva 7/1" , "Aman.aman@aman.com"),
-("Eldiyar", 24 , "Ahunbaeva/Sovetskaya" , "Eldiyar.eldiyar@eldiyar.com"),
-("Elvira", 25 , "Chingiz Aitmatov street" , "Elvira.elvira@elvira.com"),
-("Ramazan", 16 , "Manaschy Sagynbaya 226" , "Ramazan.ramazan@ramazan.com");
+insert into clients(email,password,fullname)
+    value ("Aman.aman@aman.com",1234,"Aman"),
+    ("Eldiyar.eldiyar@eldiyar.com",12345,"Eldiyar"),
+    ("Elvira.elvira@elvira.com",123456,"Elvira"),
+    ("Ramazan.ramazan@ramazan.com",1234567,"Ramazan");
 
 insert into products(name, price, image)
 value("Iphone", 90000 , "1.jpg"),
