@@ -9,7 +9,7 @@
 
         <title>${title}</title>
 
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
         <#list styles as styleSource>
             <link rel="stylesheet" href="${styleSource}">
         </#list>
@@ -17,7 +17,7 @@
     <body>
 
     <div class="container">
-        <h1>Lesson 68. Spring Security for MVC</h1>
+        <h1>Spring Security for MVC</h1>
         <#nested>
 
     </div>

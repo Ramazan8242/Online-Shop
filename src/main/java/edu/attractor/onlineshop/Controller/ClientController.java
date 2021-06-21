@@ -64,4 +64,9 @@ public class ClientController {
         model.addAttribute("error", error);
         return "login";
     }
+
+    @PostMapping("/logout")
+    public String logoutPage(){
+        return "redirect:/login";
+    }
 }
