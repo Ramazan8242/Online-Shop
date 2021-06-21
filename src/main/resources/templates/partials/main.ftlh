@@ -9,7 +9,7 @@
 
         <title>${title}</title>
 
-        <link rel="stylesheet" href="/main.css">
+        <link rel="stylesheet" href="css/main.css">
         <#list styles as styleSource>
             <link rel="stylesheet" href="${styleSource}">
         </#list>
