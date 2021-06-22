@@ -1,4 +1,4 @@
-package edu.attractor.onlineshop.DoMain;
+package edu.attractor.onlineshop.Exeption;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

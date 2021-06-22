@@ -1,6 +1,6 @@
 package edu.attractor.onlineshop.Controller;
 
-import edu.attractor.onlineshop.DoMain.ClientRegistrationForm;
+import edu.attractor.onlineshop.Exeption.ClientRegistrationForm;
 import edu.attractor.onlineshop.Entity.Client;
 import edu.attractor.onlineshop.Service.ClientService;
 import lombok.Data;
