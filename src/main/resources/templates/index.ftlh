@@ -1,8 +1,8 @@
-<#-- импортируем основной шаблон-контейнер который содержит в себе разметку для основной структуры страницы -->
-<#--<#import "partials/main.ftlh" as main />-->
+ импортируем основной шаблон-контейнер который содержит в себе разметку для основной структуры страницы
+<#import "partials/main.ftlh" as main />
 
-<#-- обрабатываем его, и передаём ему список скриптов, которые необходимо подключить-->
-<#--<@main.renderWith>-->
+ обрабатываем его, и передаём ему список скриптов, которые необходимо подключить
+<@main.renderWith>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -10,21 +10,21 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
 
-<#--    <div class="flex flex-justify-content-center">-->
-<#--        <a class="flex box-128" href="/registration"> Регистрация </a>-->
-<#--        <a class="flex box-128" href="/login"> Войти </a>-->
-<#--        <a class="flex box-128" href="/profile"> Профиль </a>-->
-<#--        <#if _csrf??>-->
-<#--            <form class="flex box-128" action="/logout" method="post">-->
-<#--                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>-->
-<#--                <button class="flex box-128 logout-button">Выйти </button>-->
-<#--            </form>-->
-<#--        <#else>-->
-<#--            <a href="/logout">Выйти</a>-->
-<#--        </#if>-->
-<#--        <a class="flex box-128" href="/cartcontroller/cart"> Корзина </a>-->
-<#--        <a class="flex box-128" href="/cartcontroller/cart"> Добавить в корзину продукт </a>-->
-<#--    </div>-->
+    <div class="flex flex-justify-content-center">
+        <a class="flex box-128" href="/registration"> Регистрация </a>
+        <a class="flex box-128" href="/login"> Войти </a>
+        <a class="flex box-128" href="/profile"> Профиль </a>
+        <#if _csrf??>
+            <form class="flex box-128" action="/logout" method="post">
+                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+                <button class="flex box-128 logout-button">Выйти </button>
+            </form>
+        <#else>
+            <a href="/logout">Выйти</a>
+        </#if>
+        <a class="flex box-128" href="/cart"> Корзина </a>
+        <a class="flex box-128" href="/cart"> Добавить в корзину продукт </a>
+    </div>
 <#--    <div class="card-group">-->
 <#--        <div class="1s card my-3">-->
 <#--            <img src="image/1.jpg" style="height: 250px;width: 300px" class="rounded  d-block  pt-4 pb-4 pr-4 col-12 col-sm-6  col-lg-4"  alt="...">-->
@@ -99,4 +99,4 @@
         const updateElement = document.getElementById("cart-add");
         updateElement.addEventListener('click', addToCart);
     </script>
-<#--</@main.renderWith>-->
+</@main.renderWith>
