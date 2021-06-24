@@ -1,4 +1,4 @@
-<#macro renderWith title="Lesson 68. Spring Security for MVC" scripts=[] styles=[]>
+<#macro renderWith title="Spring Security for MVC" scripts=[] styles=[]>
     <!doctype html>
     <html lang="en">
     <head>

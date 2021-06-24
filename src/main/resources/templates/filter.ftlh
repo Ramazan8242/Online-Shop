@@ -12,18 +12,25 @@
     <input type="submit" value="FILTER"/>
 </form>
 <#if products??>
-
 <#list products as product>
-<div style="green 1px solid" class="card-place">
-    ${product.id}
-    ${product.name}
-    ${product.price}
-</div>
+    <table class="table table-sm">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Basket</th>
+        </tr>
+        <tr>
+            <td>${product.id}</td>
+            <td> ${product.name}</td>
+            <td> ${product.price}</td>
+            <td><button>Добавить в корзину</button></td>
+        </tr>
+    </table>
 </#list>
 </#if>
-
-<#list  products as product>
-    <a href="/filter?page=${product.pageNumber+1}&size=2">==></a>
-</#list>
+<#--<#list  products as product>-->
+<#--    <a href="/filter?page=${product.pageNumber+1}&size=2">==></a>-->
+<#--</#list>-->
 </body>
 </html>
