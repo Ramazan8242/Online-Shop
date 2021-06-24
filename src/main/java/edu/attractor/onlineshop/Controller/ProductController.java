@@ -21,19 +21,19 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
     private final ModelMapper mapper = new ModelMapper();
 
-    @GetMapping("/index")
+    @GetMapping("/indexP")
     public String getProduct(Model model,@PageableDefault(value = 2) Pageable pageable){
         final Page<Product> placeDtos = this.productService.getProduct(pageable)
                 .map(place -> mapper.map(place,Product.class));
         model.addAttribute("place",placeDtos.getContent());
         model.addAttribute("pages",placeDtos.getPageable());
-        return "index";
+        return "indexP";
     }
 
     @GetMapping("/filter")
