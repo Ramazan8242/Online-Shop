@@ -21,6 +21,7 @@
                 <th>Name </th>
                 <th>Price</th>
                 <th>Basket</th>
+                <th>Feedback</th>
             </tr>
             <#list products as product>
                 <div id="id">
@@ -32,6 +33,11 @@
                             <form action="/cart/add" method="POST">
                                 <input name="id" value="${product.id}" hidden>
                                 <button type="submit" >Добавить в корзину</button>
+                            </form>
+                        </th>
+                        <th>
+                            <form action="">
+                                <button>Оставить отзыв</button>
                             </form>
                         </th>
                     </tr>

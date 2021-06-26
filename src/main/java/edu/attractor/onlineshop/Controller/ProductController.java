@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class ProductController {
 //    }
 
     @GetMapping("/filter")
-    public String filter(Model model, @ModelAttribute(name = "filter") FilterDto filter, Pageable pageable) {
+    public String filter(Model model, @ModelAttribute(name = "filter") FilterDto filter,@PageableDefault(value = 2) Pageable pageable) {
         final Page<Product> products= this.productService.getWithFilter(filter,pageable);
         if(filter.getName()!=null||filter.getMaxPrice()!=null && filter.getMaxPrice()!=null) {
             model.addAttribute("products", products.stream()
