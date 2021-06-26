@@ -10,27 +10,37 @@
     <input type="text" name="price" path="maxPrice"/>
     <input type="text" name="price" path="minPrice"/>
     <input type="submit" value="FILTER"/>
+    <link rel="icon" href="data:,">
+    <HEAD>
 </form>
 <#if products??>
-<#list products as product>
-    <table class="table table-sm">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Basket</th>
-        </tr>
-        <tr>
-            <td>${product.id}</td>
-            <td> ${product.name}</td>
-            <td> ${product.price}</td>
-            <td><button>Добавить в корзину</button></td>
-        </tr>
-    </table>
-</#list>
+    <div style="border: green 1px solid">
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>Id </th>
+                <th>Name </th>
+                <th>Price</th>
+                <th>Basket</th>
+            </tr>
+            <#list products as product>
+                <div id="id">
+                    <tr>
+                        <th>${product.id}</th>
+                        <th>${product.name}</th>
+                        <th>${product.price}</th>
+                        <th>
+                            <form action="/cart/add" method="POST">
+                                <input name="id" value="${product.id}" hidden>
+                                <button type="submit" >Добавить в корзину</button>
+                            </form>
+                        </th>
+                    </tr>
+                </div>
+            </#list>
+            <br>
+        </table>
+    </div>
+    <a href="/filter?page=${pages.pageNumber+1}">==></a>
 </#if>
-<#--<#list  products as product>-->
-<#--    <a href="/filter?page=${product.pageNumber+1}&size=2">==></a>-->
-<#--</#list>-->
 </body>
 </html>

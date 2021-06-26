@@ -18,25 +18,25 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Set<Product> getWithFilter(FilterDto filterDto){
-        Set<Product> products = new HashSet<>();
+    public Page<Product> getWithFilter(FilterDto filterDto , Pageable pageable){
+        Page<Product> products = null;
         if (filterDto.getName()!=null){
-            products.addAll(this.productRepository.findAllByNameIsContaining(filterDto.getName()));
+            products= this.productRepository.findAllByNameIsContaining(filterDto.getName(),pageable);
         }
 
         BigDecimal minRange = BigDecimal.ZERO;
+        BigDecimal maxRange = BigDecimal.valueOf(Long.MAX_VALUE);
         if (filterDto.getMinPrice()!=null){
             minRange = filterDto.getMinPrice();
-            products.addAll(this.productRepository.findAllByPriceBetween(minRange,filterDto.getMinPrice()));
+            products=  this.productRepository.findAllByPriceBetween(pageable,minRange,maxRange);
         }
 
-        BigDecimal maxRange = BigDecimal.valueOf(Long.MAX_VALUE);
         if (filterDto.getMaxPrice()!=null){
             minRange = filterDto.getMinPrice();
-            products.addAll(this.productRepository.findAllByPriceBetween(minRange,filterDto.getMaxPrice()));
+            products= this.productRepository.findAllByPriceBetween(pageable,minRange,maxRange);
         }
 
-        return products;
+        return  products;
     }
 
     public Page<Product> getProduct(Pageable pageable) {

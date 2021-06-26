@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -41,4 +42,8 @@ public class Client {
     @Column(length = 128)
     @Builder.Default
     private String role = "USER";
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "client")
+    private List<Feedback> feedback;
+
 }
