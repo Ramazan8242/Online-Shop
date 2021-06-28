@@ -54,8 +54,6 @@ public class ProductController {
         return "cart";
     }
 
-    // это метод для асинхронных запросов
-    // демонстрация добавления в "корзину" через параметр @SessionAttribute cart_model
     @PostMapping("/cart")
     @ResponseBody
     public boolean addToListRest(@RequestParam String value, @SessionAttribute(name = Constants.CART_ID, required = false) List<String> cart) {
@@ -66,8 +64,6 @@ public class ProductController {
         return true;
     }
 
-    // метод для добавления в "корзину" через форму
-    // демонстрация добавления через объект HttpSession session
     @PostMapping("/cart/add")
     public String addToList(@RequestParam String value, HttpSession session) {
         if (session != null) {
@@ -86,9 +82,6 @@ public class ProductController {
         return "redirect:/";
     }
 
-    // в идеале это должно быть @DeleteMapping, но web-формы не поддерживают
-    // запросы с методами отличными от get и post
-    // по этому у нас адрес метода немного "странный" :)
     @PostMapping("/cart/empty")
     public String emptyCart(HttpSession session) {
         session.removeAttribute(Constants.CART_ID);

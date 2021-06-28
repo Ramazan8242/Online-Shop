@@ -22,8 +22,7 @@ public class Order{
     @OneToOne
     private Client client;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
-    @OrderBy("name ASC")
+    @OneToMany
     private List<Product> products;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")

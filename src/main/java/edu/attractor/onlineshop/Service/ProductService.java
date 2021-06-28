@@ -42,4 +42,5 @@ public class ProductService {
     public Page<Product> getProduct(Pageable pageable) {
         return this.productRepository.findAll(pageable);
     }
+
 }

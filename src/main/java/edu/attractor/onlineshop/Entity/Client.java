@@ -43,7 +43,5 @@ public class Client {
     @Builder.Default
     private String role = "USER";
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "client")
-    private List<Feedback> feedback;
 
 }
