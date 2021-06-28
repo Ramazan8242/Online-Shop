@@ -25,4 +25,7 @@ public class Order{
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
     @OrderBy("name ASC")
     private List<Product> products;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
+    private List<Feedback> feedback;
 }

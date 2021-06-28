@@ -1,6 +1,5 @@
 package edu.attractor.onlineshop.Controller;
 
-import edu.attractor.onlineshop.Dto.KeyValueRequestDto;
 import edu.attractor.onlineshop.Exeption.ClientRegistrationForm;
 import edu.attractor.onlineshop.Entity.Client;
 import edu.attractor.onlineshop.Service.ClientService;
@@ -12,13 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 @Data
 @Controller
 public class ClientController {
@@ -70,5 +64,17 @@ public class ClientController {
     @PostMapping("/logout")
     public String logoutPage(){
         return "redirect:/login";
+    }
+
+    @GetMapping("/forgot-password")
+    public String getNewPassword(){
+        return "password";
+    }
+
+    @PostMapping("/resetPassword")
+    public String getNewPassword(@ModelAttribute Client client, Model model){
+        String password = clientService.getPassword(client.getEmail());
+        model.addAttribute("password", password);
+        return "success";
     }
 }
