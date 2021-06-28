@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 @Data
 @Controller
+@RequestMapping(value = "/")
 public class ClientController {
     @Autowired
     private final ClientService clientService;

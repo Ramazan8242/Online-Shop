@@ -50,8 +50,8 @@ public class ClientService {
                 .orElseThrow(ClientNotFoundException::new);
     }
     private String randomStringGenerator(){
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
+        int leftLimit = 97;
+        int rightLimit = 122;
         int targetStringLength = 10;
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);
@@ -64,8 +64,8 @@ public class ClientService {
     }
 
     public String getPassword(String email) {
-        final Client user=this.clientRepository.findByEmail(email).orElseThrow(NotFoundException::new);
-        return updatePassword(user);
+        final Client client=this.clientRepository.findByEmail(email).orElseThrow(NotFoundException::new);
+        return updatePassword(client);
     }
 
     private String updatePassword(Client client){

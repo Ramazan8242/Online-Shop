@@ -4,7 +4,6 @@ import edu.attractor.onlineshop.Dto.FeedbackDto;
 import edu.attractor.onlineshop.Entity.Client;
 import edu.attractor.onlineshop.Entity.Feedback;
 import edu.attractor.onlineshop.Entity.Order;
-import edu.attractor.onlineshop.Entity.Product;
 import edu.attractor.onlineshop.Repository.OrderRepository;
 import edu.attractor.onlineshop.Service.ClientService;
 import edu.attractor.onlineshop.Service.OrderService;
