@@ -1,7 +1,7 @@
 use `onlineshop`;
 
 create table baskets (id integer not null auto_increment, price integer not null, client_id integer, product_id integer, primary key (id)) engine=InnoDB;
-create table clients (id integer not null auto_increment, email varchar(128), enabled bit, fullname varchar(128), password varchar(128), role varchar(128), primary key (id)) engine=InnoDB;
+create table clients (id integer not null auto_increment, email varchar(128), fullname varchar(128), password varchar(128), role varchar(128), primary key (id)) engine=InnoDB;
 create table feedbacks (id integer not null auto_increment, date datetime(6), review_content varchar(255), client_id integer, order_id integer, primary key (id)) engine=InnoDB;
 create table orders (id integer not null auto_increment, client_id integer, primary key (id)) engine=InnoDB;
 create table orders_products (order_id integer not null, products_id integer not null) engine=InnoDB;

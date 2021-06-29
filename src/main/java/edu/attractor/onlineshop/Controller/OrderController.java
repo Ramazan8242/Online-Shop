@@ -44,7 +44,7 @@ public class OrderController {
         return "redirect:/orders";
     }
 
-    @GetMapping
+    @GetMapping("/feedback")
     public String getAllOrders(@PageableDefault(value = 2) Pageable pageable, Model model){
         Page<Order> allOrders= orderService.getAllOrders(pageable);
         model.addAttribute("orders",allOrders.getContent());
