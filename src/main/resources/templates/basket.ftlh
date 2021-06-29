@@ -27,7 +27,7 @@
         </th>
         </#list>
         <#if _csrf??>
-            <form action="/basket/add" method="post">
+            <form action="/basket/empty" method="post">
                     <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                 <button>Очистить корзину</button>
             </form>

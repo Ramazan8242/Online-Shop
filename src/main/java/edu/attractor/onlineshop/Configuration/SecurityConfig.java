@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable();
+        http.csrf();
         http.formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true");
@@ -45,9 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile")
                 .authenticated();
 
-
         http.authorizeRequests()
                 .antMatchers("/basket")
+                .authenticated();
+
+        http.authorizeRequests()
+                .antMatchers("/addFeedback")
                 .authenticated();
 
         http.authorizeRequests()

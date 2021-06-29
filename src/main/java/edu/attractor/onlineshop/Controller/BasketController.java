@@ -14,7 +14,6 @@ import java.util.List;
 
 @Controller
 @Data
-//@RequestMapping("/")
 public class BasketController {
     @Autowired
     private ProductRepository productRepository;

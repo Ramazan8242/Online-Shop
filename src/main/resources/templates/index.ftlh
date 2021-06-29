@@ -24,6 +24,6 @@
         <a class="flex box-128" href="/basket"> Корзина </a>
         <a class="flex box-128" href="/products"> Добавить в корзину продукт </a>
         <a class="flex box-128" href="/forgot-password">Изменить пароль</a>
-        <a class="flex box-128" href="/orders/feedback">Оставить отзыв</a>
+        <a class="flex box-128" href="/feedback">Оставить отзыв</a>
     </div>
 </@main.renderWith>

@@ -19,25 +19,18 @@
             </#list>
             <th><button id="btn" style="margin-bottom: 2rem"> review </button></th>
         </div>
-        <div id="review"  style="border: 1px solid red; padding-bottom: 2rem; margin-bottom: 3rem" hidden>
-
-            <#list order.feedback as review>
-                <li>${review.reviewContent}</li>
-
-            </#list>
-        </div>
         <button id="com-btn"> add Comment </button>
 
-        <div id="com" hidden>
-
-            <form id="text" action="/orders/addFeedback" modelAttribute ="comment" method="POST">
-                <p>
-                    <textarea  name="reviewContent" placeholder="Комментарий" required autofocus form="text"></textarea>
-                    <input type="number" name="orderFor" value="${order.id}" hidden>
-                </p>
-                <p><input type="submit" value="Отправить" form="text"></p>
-            </form>
-        </div>
+        <#if _csrf??>
+            <div id="com" hidden>
+                <form id="text" action="/addFeedback" modelAttribute ="comment" method="POST">
+                    <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+                    <p><textarea  name="reviewContent" placeholder="Комментарий" required autofocus form="text"></textarea>
+                        <input type="number" name="orderFor" value="${order.id}" hidden></p>
+                    <p><input type="submit" value="Отправить" form="text"></p>
+                </form>
+            </div>
+        </#if>
     </#list>
 </#if>
 </body>
