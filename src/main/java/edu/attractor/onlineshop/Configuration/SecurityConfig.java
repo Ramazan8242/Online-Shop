@@ -45,6 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile")
                 .authenticated();
 
+
+        http.authorizeRequests()
+                .antMatchers("/basket")
+                .authenticated();
+
         http.authorizeRequests()
                 .anyRequest()
                 .permitAll();

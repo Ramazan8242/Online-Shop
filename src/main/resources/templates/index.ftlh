@@ -15,14 +15,14 @@
         <a class="flex box-128" href="/profile"> Профиль </a>
         <#if _csrf??>
             <form class="flex box-128" action="/logout" method="post">
-<#--                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>-->
+                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                 <button class="flex box-128 logout-button">Выйти </button>
             </form>
         <#else>
             <a href="/logout">Выйти</a>
         </#if>
-        <a class="flex box-128" href="/cart"> Корзина </a>
-        <a class="flex box-128" href="/filter"> Добавить в корзину продукт </a>
+        <a class="flex box-128" href="/basket"> Корзина </a>
+        <a class="flex box-128" href="/products"> Добавить в корзину продукт </a>
         <a class="flex box-128" href="/forgot-password">Изменить пароль</a>
     </div>
 </@main.renderWith>
