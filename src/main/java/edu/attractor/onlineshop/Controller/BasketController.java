@@ -41,7 +41,7 @@ public class BasketController {
             }
         }
 
-        return "redirect:/basket";
+        return "redirect:/";
     }
 
     @PostMapping("/basket/empty")

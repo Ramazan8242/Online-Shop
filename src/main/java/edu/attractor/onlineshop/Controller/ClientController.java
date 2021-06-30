@@ -1,9 +1,12 @@
 package edu.attractor.onlineshop.Controller;
 
+import edu.attractor.onlineshop.Entity.Product;
 import edu.attractor.onlineshop.Exeption.ClientRegistrationForm;
 import edu.attractor.onlineshop.Entity.Client;
 import edu.attractor.onlineshop.Service.ClientService;
+import edu.attractor.onlineshop.Service.ProductService;
 import lombok.Data;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,7 @@ import java.security.Principal;
 public class ClientController {
     @Autowired
     private final ClientService clientService;
+
     @GetMapping("/profile")
     public String pageCustomerProfile(Model model, Principal principal) {
         var user = clientService.getByEmail(principal.getName());

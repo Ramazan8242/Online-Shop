@@ -21,10 +21,9 @@ public class ProductController {
     private ProductService productService;
     private final ModelMapper mapper = new ModelMapper();
 
-    @GetMapping("products")
+    @GetMapping("/products")
     public String getProduct(Model model,@PageableDefault(value = 2) Pageable pageable){
-        final Page<Product> placeDtos = this.productService.getProduct(pageable)
-                .map(place -> mapper.map(place,Product.class));
+        final Page<Product> placeDtos = this.productService.getProduct(pageable).map(place -> mapper.map(place,Product.class));
         model.addAttribute("products",placeDtos.getContent());
         model.addAttribute("pages",placeDtos.getPageable());
         return "products";

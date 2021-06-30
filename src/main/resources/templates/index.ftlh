@@ -1,5 +1,4 @@
 <#import "partials/main.ftlh" as main />
-
 <@main.renderWith>
     <head>
         <meta charset="UTF-8">
@@ -10,16 +9,14 @@
     </head>
 
     <div class="flex flex-justify-content-center">
-        <a class="flex box-128" href="/registration"> Регистрация </a>
-        <a class="flex box-128" href="/login"> Войти </a>
         <a class="flex box-128" href="/profile"> Профиль </a>
         <#if _csrf??>
-            <form class="flex box-128" action="/logout" method="post">
-                <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
-                <button class="flex box-128 logout-button">Выйти </button>
-            </form>
-        <#else>
-            <a href="/logout">Выйти</a>
+        <form class="flex box-128" action="/logout" method="post">
+            <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+            <button class="flex box-128 logout-button">Выйти </button>
+        </form>
+    <#else>
+        <a href="/logout">Выйти</a>
         </#if><br/>
         <a class="flex box-128" href="/basket"> Корзина </a>
         <a class="flex box-128" href="/products"> Добавить в корзину продукт </a>
