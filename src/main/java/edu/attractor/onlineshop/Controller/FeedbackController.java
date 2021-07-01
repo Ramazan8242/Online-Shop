@@ -11,4 +11,8 @@ import org.springframework.stereotype.Controller;
 public class FeedbackController {
     @Autowired
     private final FeedbackService feedbackService;
+
+    public FeedbackController(FeedbackService feedbackService) {
+        this.feedbackService = feedbackService;
+    }
 }

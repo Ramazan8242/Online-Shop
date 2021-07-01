@@ -30,7 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf();
         http.formLogin()
                 .loginPage("/login")
-                .failureUrl("/login?error=true");
+                .failureUrl("/login?error=true")
+        .usernameParameter("email")
+        .passwordParameter("password");
+
 
         http.logout()
                 .logoutUrl("/logout")
@@ -60,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        String fetchUsersQuery = "select email, password, enabled"
+        String fetchUsersQuery = "select email, password, id"
                 + " from clients"
                 + " where email = ?";
 

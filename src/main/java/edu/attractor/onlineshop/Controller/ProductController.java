@@ -26,7 +26,7 @@ public class ProductController {
         final Page<Product> placeDtos = this.productService.getProduct(pageable).map(place -> mapper.map(place,Product.class));
         model.addAttribute("products",placeDtos.getContent());
         model.addAttribute("pages",placeDtos.getPageable());
-        return "products";
+        return "index";
     }
 
     @GetMapping("/filter")

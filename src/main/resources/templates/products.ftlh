@@ -8,7 +8,7 @@
     <#else>
     </#if>
 
-    <table border="1" width="100%" cellpadding="5">
+    <table border="1 solid black" width="100%" cellpadding="5">
         <tr>
             <th>Название </th>
             <th>цена</th>

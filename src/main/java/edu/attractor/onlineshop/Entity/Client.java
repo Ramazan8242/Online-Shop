@@ -4,13 +4,13 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.util.List;
 
-@Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
+@Getter
+@Setter
 @Table(name="clients")
 public class Client {
     @Id
@@ -38,6 +38,4 @@ public class Client {
     @Column(length = 128)
     @Builder.Default
     private String role = "USER";
-
-
 }

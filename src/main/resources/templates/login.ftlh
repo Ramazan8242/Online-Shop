@@ -17,7 +17,7 @@
         <div>
             <label class="flex flex-v-center ">
                 <span class="label-input-text">Адрес почты:</span>
-                <input type="text" name="username" placeholder="ваш адрес почты"  value="${(dto.email)!''}" autofocus >
+                <input type="text" name="email" placeholder="ваш адрес почты"  value="${(dto.email)!''}" autofocus >
             </label>
         </div>
         <div>
